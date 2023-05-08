@@ -1,0 +1,15 @@
+@media screen and (min-width: 620px) {
+  .flexy {
+    display: flex;
+  }
+}
+@media screen and (max-width: 620px) {
+  .flexyM {
+    display: flex;
+  }
+}
+
+@font-face {
+  font-family: Proxima-Nova-Font;
+  src: url(./assets/fonts/Proxima-Nova-Font/ProximaNovaFont.otf);
+}

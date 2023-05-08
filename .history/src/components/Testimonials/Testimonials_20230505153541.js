@@ -1,0 +1,23 @@
+import React from "react";
+import Star from "../../assets/images/stars.png";
+import Quote from "../../assets/images/Quote.svg";
+import "./testimonials.scss";
+function Testimonials(props) {
+  return (
+    <div className="testimonial-div col-md-12">
+      <div className="flexy flexyM">
+        <div className="  star col-md-10">
+          {" "}
+          <img src={Star} alt="Scholar" width="15%" height="25px" />
+        </div>
+        <div className="quote">
+          {" "}
+          <img src={Quote} alt="Scholar" width="100%" />
+        </div>
+      </div>
+      <h3>{props.paragraph}</h3>
+    </div>
+  );
+}
+
+export default Testimonials;

@@ -1,0 +1,9 @@
+.testimonial-div {
+  border: solid 1px black;
+  border-radius: 20px;
+  padding: 20px 10px;
+  height: fit-content;
+  .quote {
+    float: right !important;
+  }
+}

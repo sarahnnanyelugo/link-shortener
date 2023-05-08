@@ -1,0 +1,31 @@
+@media screen and (min-width: 620px) {
+  .flexy {
+    display: flex;
+  }
+}
+@media screen and (max-width: 620px) {
+  .flexyM {
+    display: flex;
+  }
+}
+
+@font-face {
+  font-family: Proxima-Nova-Font;
+  src: url(./assets/fonts/Proxima-Nova-Font/Fontspring-proximanovacond-black.otf);
+}
+@font-face {
+  font-family: Proxima-Nova-Font;
+  src: url(./assets/fonts/Proxima-Nova-Font/Fontspring-proximanovacond-black.otf);
+}
+.app-btn {
+  background: #2a5bd7;
+  color: #fff;
+  border: none;
+  padding: 20px 40px;
+  border-radius: 10px;
+  // font-family: Proxima-Nova-Font;
+
+  &:hover {
+    background: #0236b9;
+  }
+}
