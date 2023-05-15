@@ -1,14 +1,31 @@
 import Accordion from "react-bootstrap/Accordion";
 import "./converter-button.scss";
 import { Link } from "react-router-dom";
+import { Endpoints, PostData } from "../../../components/Endpoints";
+import { useEffect, useState } from "react";
 
-function ConverterButton() {
+function ConverterButton({ url }) {
+  const [result, setResult] = useState({});
+  function convert() {
+    const endPoint = Endpoints.post_url;
+    // console.log(endPoint);
+    const props = { endPoint: endPoint, data: { target_url: url } };
+    // setResult(PostData(props));
+    let ret = PostData(props);
+    ret.then((resp) => {
+      setResult(resp);
+      console.log(result);
+    });
+  }
+  useEffect(() => {
+    console.log(result);
+  }, [result]);
   return (
     <div className="converter">
       {" "}
       <Accordion defaultActiveKey="">
         <Accordion.Item eventKey="0">
-          <Accordion.Header>
+          <Accordion.Header onClick={convert}>
             <h5>Shorten</h5>{" "}
           </Accordion.Header>
           <Accordion.Body>
@@ -19,9 +36,13 @@ function ConverterButton() {
 
             <div className=" flexy col-md-12 converter-output">
               <span className="shortened-link">Shortened Link</span>
-              <a href="" target="_blank" className="link">
-                https://bit.ly/41alDAa
-              </a>
+              {result != {} ? (
+                <a href={result.url} target="_blank" className="link">
+                  {result.url}
+                </a>
+              ) : (
+                ""
+              )}
               <button className="copy">Copy</button>
             </div>
             <div className="flexy qr-codes">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ConverterButton from "./ConverterButton/ConverterButton";
 import "./home.scss";
 import Globe from "../../assets/images/globe.png";
@@ -12,27 +12,35 @@ import Arts from "../../assets/images/electronic-arts.svg";
 import FAQAccordionBlue from "./FAQAccordionBlue/FAQAccordionBlue";
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
-
+import { Endpoints } from "../../components/Endpoints";
 function Home() {
+  const [urlValue, setUrlValue] = useState("");
+  function ChangeUrl(e) {
+    setUrlValue(e.target.value);
+  }
   return (
     <>
       <div className="col-md-8 offset-md-2 home-container">
         <div className="col-md-12">
-          <h1 className="col-md-10">
-            We’ve expanded! <br />
+          <h2 className="col-md-10">
             Shorten URLs. Generate QR Codes. And now, create Link-in-bios.
-          </h1>
+          </h2>
           <button className="app-btn">Get Started for Free</button>
         </div>
       </div>
       <div className="shortner-div ">
         <div className="flexy col-md-8 offset-md-2">
           <div className="col-md-8">
-            <input type="text" placeholder="shorten your link" />
+            <input
+              type="text"
+              placeholder="shorten your link"
+              onChange={ChangeUrl}
+              value={urlValue}
+            />
           </div>
         </div>
         <div className="col-md-8 offset-md-2 conveter-btn-div">
-          <ConverterButton />
+          <ConverterButton url={urlValue} />
         </div>
       </div>
 
